@@ -1,15 +1,20 @@
 import React from 'react';
 import { HeroData } from '../../models/HeroData';
+import { TestimonialData } from '../../models/TestimonialData';
 import Hero from '../Hero';
+import Testimonial from '../Testimonial';
 
 interface Props {
-  sections: HeroData[];
+  sections: (HeroData | TestimonialData)[];
 }
 
-const getSectionComponent = (section: HeroData, sectionIdx: number) => {
+const getSectionComponent = (section: any, sectionIdx: number) => {
   switch (section.type) {
     case 'hero':
       return <Hero key={sectionIdx} {...section} />;
+
+    case 'testimonial':
+      return <Testimonial key={sectionIdx} {...section} />;
 
     default:
       return <div key={sectionIdx} className='no_section_type' />;
