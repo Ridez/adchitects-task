@@ -9,7 +9,7 @@ const auth = {
 
 export const getPages = () => {
   return axios
-    .get(`${apiUrl}/posts`, { auth })
+    .get(`${apiUrl}/pages`, { auth })
     .then((res) => res)
     .catch((err) => err);
 };
