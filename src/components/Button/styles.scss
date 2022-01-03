@@ -1,0 +1,14 @@
+@import '/src/styles/variables';
+
+button {
+  width: 192px;
+  font-size: 16px;
+  line-height: 24px;
+  color: $black;
+  background-color: $purple;
+  border-radius: 24px;
+  border: 0;
+  padding: 12px 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
