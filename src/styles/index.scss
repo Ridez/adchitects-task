@@ -16,3 +16,25 @@ a,
 button {
   font-family: Inter, Helvetica, Arial, sans-serif;
 }
+
+.container {
+  position: relative;
+  width: 1056px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .col {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
