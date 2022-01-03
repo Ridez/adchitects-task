@@ -14,6 +14,13 @@ export const getPages = () => {
     .catch((err) => err);
 };
 
+export const getPage = (id: string) => {
+  return axios
+    .get(`${apiUrl}/page/${id}`, { auth })
+    .then((res) => res)
+    .catch((err) => err);
+};
+
 export const singUpToNewsletter = (email: string) => {
   return axios
     .post(`${apiUrl}/newsletter`, { email }, { auth })
