@@ -1,11 +1,13 @@
 import React from 'react';
 import { HeroData } from '../../models/HeroData';
+import { NewsletterData } from '../../models/NewsletterData';
 import { TestimonialData } from '../../models/TestimonialData';
 import Hero from '../Hero';
+import Newsletter from '../Newsletter';
 import Testimonial from '../Testimonial';
 
 interface Props {
-  sections: (HeroData | TestimonialData)[];
+  sections: (HeroData | TestimonialData | NewsletterData)[];
 }
 
 const getSectionComponent = (section: any, sectionIdx: number) => {
@@ -15,6 +17,9 @@ const getSectionComponent = (section: any, sectionIdx: number) => {
 
     case 'testimonial':
       return <Testimonial key={sectionIdx} {...section} />;
+
+    case 'newsletter':
+      return <Newsletter key={sectionIdx} />;
 
     default:
       return <div key={sectionIdx} className='no_section_type' />;
