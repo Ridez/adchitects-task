@@ -13,3 +13,10 @@ export const getPages = () => {
     .then((res) => res)
     .catch((err) => err);
 };
+
+export const singUpToNewsletter = (email: string) => {
+  return axios
+    .post(`${apiUrl}/newsletter`, { email }, { auth })
+    .then((res) => res)
+    .catch((err) => err.response);
+};
