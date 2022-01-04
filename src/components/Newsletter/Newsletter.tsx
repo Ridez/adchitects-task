@@ -38,7 +38,7 @@ export const Newsletter: React.FC = () => {
   return (
     <section className={`newsletter container ${isVisible ? 'inView' : ''}`} ref={ref}>
       <h2 className='newsletter__title'>Sign up for Newsletter</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='newsletter__form'>
         <input
           onChange={handleChange}
           className='newsletter__input'

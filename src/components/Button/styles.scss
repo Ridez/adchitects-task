@@ -12,3 +12,11 @@ button {
   cursor: pointer;
   white-space: nowrap;
 }
+
+@media screen and (max-width: $mobile) {
+  button {
+    &.submit {
+      width: 100%;
+    }
+  }
+}

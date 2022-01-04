@@ -7,5 +7,9 @@ type Props = {
 };
 
 export const Button: React.FC<Props> = ({ text, type }) => {
-  return <button type={type}>{text}</button>;
+  return (
+    <button type={type} className={`${type === 'submit' ? 'submit' : ''}`}>
+      {text}
+    </button>
+  );
 };
