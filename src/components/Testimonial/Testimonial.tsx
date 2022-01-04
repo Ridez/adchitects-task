@@ -16,7 +16,7 @@ export const Testimonial: React.FC<Props> = ({ text, author }) => {
   return (
     <section className={`testimonial ${isVisible ? 'inView' : ''}`} ref={ref}>
       <div className='container'>
-        <img className='quotation-mark' src={quotationMark} />
+        <img className='quotation-mark' src={quotationMark} alt='' />
         <p className='testimonial__text'>{text}</p>
         <p className='testimonial__author'>{author}</p>
       </div>
