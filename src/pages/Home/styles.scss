@@ -1,0 +1,17 @@
+@import '/src/styles/variables';
+
+.loading {
+  background-color: $purple;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1.2s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+}
+
+.loaded {
+  transform: translate3d(0, -100vh, 0);
+}
