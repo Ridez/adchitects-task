@@ -20,21 +20,40 @@ button {
 .container {
   position: relative;
   width: 1056px;
-  max-width: 100%;
+  max-width: calc(100% - 128px);
   margin: 0 auto;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
   .col {
     display: flex;
     align-items: center;
   }
 }
 
+.inView {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1.2s cubic-bezier(0.16, 1.08, 0.38, 0.98), opacity 0.4s ease-out;
+}
+
 @media screen and (max-width: $tablet) {
   .row {
     grid-template-columns: 1fr;
+  }
+  .container {
+    max-width: 100%;
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
