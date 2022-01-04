@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useIntersectionObserver } from '../intersectionObserver';
 import './styles.scss';
 
 interface Props {
@@ -7,8 +8,12 @@ interface Props {
 }
 
 export const Hero: React.FC<Props> = ({ text, img }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(ref, {});
+  const isVisible = entry?.isIntersecting;
+
   return (
-    <section className='hero container'>
+    <section className={`hero container ${isVisible ? 'inView' : ''}`} ref={ref}>
       <div className='row'>
         <div className='col'>
           <p className='hero__text'>{text}</p>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useIntersectionObserver } from '../intersectionObserver';
 import quotationMark from './quotation-mark.svg';
 import './styles.scss';
 
@@ -8,8 +9,12 @@ type Props = {
 };
 
 export const Testimonial: React.FC<Props> = ({ text, author }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(ref, {});
+  const isVisible = entry?.isIntersecting;
+
   return (
-    <section className='testimonial'>
+    <section className={`testimonial ${isVisible ? 'inView' : ''}`} ref={ref}>
       <div className='container'>
         <img className='quotation-mark' src={quotationMark} />
         <p className='testimonial__text'>{text}</p>

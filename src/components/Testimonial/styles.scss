@@ -3,6 +3,8 @@
 .testimonial {
   background-color: $black;
   padding: 128px 0;
+  opacity: 0;
+  transform: translate3d(0, 50px, 0);
   &__text {
     color: $grey;
     margin-top: 68px;
@@ -23,4 +25,12 @@
 
 .quotation-mark {
   width: 48px;
+}
+
+@media screen and (max-width: $mobile) {
+  .testimonial {
+    &__text {
+      padding-right: 0;
+    }
+  }
 }

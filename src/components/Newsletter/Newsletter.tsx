@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { singUpToNewsletter } from '../../services/breallyApi';
 import Button from '../Button';
+import { useIntersectionObserver } from '../intersectionObserver';
 import './styles.scss';
 
 export const Newsletter: React.FC = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(ref, {});
+  const isVisible = entry?.isIntersecting;
+
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [formEmail, setFormEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -31,7 +36,7 @@ export const Newsletter: React.FC = () => {
   };
 
   return (
-    <section className='newsletter container'>
+    <section className={`newsletter container ${isVisible ? 'inView' : ''}`} ref={ref}>
       <h2 className='newsletter__title'>Sign up for Newsletter</h2>
       <form onSubmit={handleSubmit}>
         <input
