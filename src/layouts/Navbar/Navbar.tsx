@@ -53,10 +53,14 @@ export const Navbar: React.FC = () => {
           <Link to='/contact' className='navbar__contact-link'>
             <Button text='Contact us' type='button'></Button>
           </Link>
-          <FontAwesomeIcon onClick={hideNav} className='navbar__close' icon={faTimes} />
+          <div onClick={hideNav} className='navbar__close'>
+            <FontAwesomeIcon icon={faTimes} />
+          </div>
         </div>
 
-        <FontAwesomeIcon onClick={showNav} className='navbar__bars' icon={faBars} />
+        <div onClick={showNav} className='navbar__bars'>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
       </div>
     </nav>
   );
